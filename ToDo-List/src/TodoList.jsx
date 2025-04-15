@@ -26,16 +26,26 @@ export default function TodoList(){
     
     let allDone = () => {    
         setToDo( toDo.map((todo)=> {
-            function random(text) {
-                return(
-                    <span style={{textDecoration: "line-through"}}>{text}</span>
-                )
-            }
             return {
                 ...todo,
-                task: todo.task.random(todo.task),
+                task: todo.task.toUpperCase(),
             }
         }))
+    }
+
+    let oneDone = (id) => {    
+        setToDo((prevValue) => 
+            prevValue.map((todo) => {
+                if(todo.id === id){
+                    return {
+                        ...todo,
+                        task: todo.task.toUpperCase(),
+                    }
+                }else{
+                    return todo;
+                }
+            })
+        )
     }
 
     return(
@@ -54,13 +64,13 @@ export default function TodoList(){
                         &nbsp; &nbsp;
                         <button onClick={() => deleteToDo(todo.id)}>Delete</button>
                         &nbsp; &nbsp;
-                        <button onClick={allDone}>Mark as done</button>
+                        <button onClick={() => oneDone(todo.id)}>UpperCase</button>
                         
                     </li>
                     
                 ))}
             </ul>
-            <button onClick={allDone}>Mark as done all</button>
+            <button onClick={allDone}>UpperCase all</button>
         </div>
     )
 }
