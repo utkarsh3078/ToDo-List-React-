@@ -4,8 +4,8 @@ A simple and intuitive todo list application built with React to help users mana
 
 ## Features
 
-- Create, read, update, and delete tasks
-- Mark tasks as complete or incomplete
+- Create, read and delete tasks
+- Mark tasks as complete or incomplete( Comming soon )
 - You can set any task to upperCase
 
 ## How to Use
