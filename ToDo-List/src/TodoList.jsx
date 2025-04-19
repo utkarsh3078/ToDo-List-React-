@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
 
 export default function TodoList(){
 
@@ -79,7 +82,7 @@ export default function TodoList(){
         <div>
             <h1>ToDo List (React)</h1>
             <input placeholder="add a task" value={newToDo} onChange={handleChange}></input> &nbsp; &nbsp;
-            <button onClick={addNewTask}>Add</button>
+            <Button variant="contained" onClick={addNewTask}>Add</Button>
             <br /><br /> <br />
             <hr></hr>
             <h3>Tasks:</h3>
@@ -89,18 +92,21 @@ export default function TodoList(){
                     <li key={todo.id}>
                         <span style={todo.isDone ? {textDecorationLine: "line-through"} : {}}>{todo.task}</span> 
                         &nbsp; &nbsp;
-                        <button onClick={() => deleteToDo(todo.id)}>Delete</button>
+                        <IconButton aria-label="delete" color="error" onClick={() => deleteToDo(todo.id)} >
+                            <DeleteIcon />
+                        </IconButton>
                         &nbsp; &nbsp;
-                        <button onClick={() => oneUppercase(todo.id)}>UpperCase</button>
+                        <Button variant="contained" onClick={() => oneUppercase(todo.id)} >Uppercase</Button>
                         &nbsp; &nbsp;
-                        <button onClick={() => oneDone(todo.id)}>Mark as done</button>
+                        <Button variant="contained" color="success" onClick={() => oneDone(todo.id)}>Mark as done</Button>
                         
                     </li>
                     
                 ))}
             </ul>
-            <button onClick={allUppercase}>UpperCase all</button>
-            <button onClick={alldone}>Mark as Done</button>
+            <Button variant="contained" onClick={allUppercase}>UpperCase all</Button>
+            &nbsp; &nbsp;
+            <Button variant="contained" color="error"  onClick={alldone}>Mark as Done</Button>
         </div>
     )
 }
