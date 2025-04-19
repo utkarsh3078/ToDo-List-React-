@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
+import TextField from '@mui/material/TextField';
 
 export default function TodoList(){
 
@@ -81,7 +82,8 @@ export default function TodoList(){
     return(
         <div>
             <h1>ToDo List (React)</h1>
-            <input placeholder="add a task" value={newToDo} onChange={handleChange}></input> &nbsp; &nbsp;
+            <TextField id="standard-basic" label="Task" variant="standard" value={newToDo} onChange={handleChange} />
+            &nbsp; &nbsp;
             <Button variant="contained" onClick={addNewTask}>Add</Button>
             <br /><br /> <br />
             <hr></hr>
